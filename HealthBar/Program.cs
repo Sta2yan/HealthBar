@@ -17,10 +17,10 @@ namespace HealthBar
             Console.WriteLine("Введите кол-во жизней в процентах:");
             int percentShading = Convert.ToInt32(Console.ReadLine());
 
-            DrawHelthBar(symbolShading, percentShading, defaultConsoleColor);
+            DrawHealthBar(symbolShading, percentShading, defaultConsoleColor);
         }
 
-        static void DrawHelthBar(char symbol, int percent, ConsoleColor defaultConsoleColor = ConsoleColor.White)
+        static void DrawHealthBar(char symbol, int percent, ConsoleColor defaultConsoleColor = ConsoleColor.White)
         {
             int fillHealth = percent / 10;
             int maximumHealth = 10;
