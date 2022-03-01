@@ -22,25 +22,34 @@ namespace HealthBar
 
         static void DrawHealthBar(char symbol, int percent, ConsoleColor defaultConsoleColor = ConsoleColor.White)
         {
-            int fillHealth = percent / 10;
-            int maximumHealth = 10;
-            char[] symbols = new char[fillHealth];
+            int maximinPercent = 100;
 
-            Console.Write("[");
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            for (int i = 0; i < symbols.Length; i++)
+            if (percent >= 0 && percent <= maximinPercent)
             {
-                Console.Write(symbol);
-            }
+                int oneTenthOfPercent = 10;
+                int fillHealth = percent / oneTenthOfPercent;
+                int maximumHealth = 10;
 
-            Console.ForegroundColor = defaultConsoleColor;
-            for (int i = fillHealth; i < maximumHealth; i++)
+                Console.Write("[");
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                for (int i = 0; i < fillHealth; i++)
+                {
+                    Console.Write(symbol);
+                }
+
+                Console.ForegroundColor = defaultConsoleColor;
+                for (int i = fillHealth; i < maximumHealth; i++)
+                {
+                    Console.Write("_");
+                }
+
+                Console.Write("]");
+            }
+            else
             {
-                Console.Write("_");
+                Console.WriteLine("Вы вышли за диапозон по процентам!");
             }
-
-            Console.Write("]");
         }
     }
 }
